@@ -1,3 +1,8 @@
+html {
+    background-color: lightgrey;
+}
+
+
 header {
     background-color: skyblue;
     width: 100%;
@@ -16,18 +21,28 @@ h1 {
 }
 
 body {
-    background-color: beige;
+    background-color: rgb(255, 255, 255);
     font-family: sans-serif;
     margin: 20px;
 }
 
 p {
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
-    font-size: large;
-    background-color: lightblue;
-    border: 10px black;
-    border-radius: 20px;
-    padding: 20px;
+    font-size: 1.2em;
+    text-align: center;
+    color: black;
+    text-align: center;
+    margin-top: 30%;
+}
+
+main {
+    text-align: center;
+    display: flex;
+    background-color: rgb(189, 189, 189);
+    margin-top: 15%;
+    height: 30%;
+    width: 94%;
+    padding-left: 0;
+    flex-direction: column;
+    position: fixed;
 }
 
