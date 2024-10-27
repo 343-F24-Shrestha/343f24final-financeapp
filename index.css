@@ -1,13 +1,28 @@
 body {
+    background-color: rgb(28, 133, 231);
     display: flex;
     flex-direction: column;
     margin: 0;
     min-height: 100vh;
   }
+
+  header {
+    display: flex;
+    background-color: cadetblue;
+    padding-bottom: 35px;
+    justify-content: center;
+  }
+
   .middler {
     flex-grow: 1;
     display: flex;
     flex-direction: row;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   aside {
@@ -16,15 +31,36 @@ body {
   }
   
   main {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     flex-basis: 0;
+    justify-content: flex-start;
+    align-items: center;
   }
+
+  section {
+    margin: 20%;
+  }
+  main > form {
+    display: flex;
+    justify-content: center;
+  }
+
   
-  main, aside {
+  main, aside, header {
     padding: 10px;
   }
 
+  form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   form button {
+    font-size: large;
     margin: 10px;
-    padding: 5%;
+    padding: 3.5em;
+    background-color: azure;
   }
