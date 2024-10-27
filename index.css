@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+  }
+  .middler {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  aside {
+    background-color: cornsilk;
+    flex-basis: 150px;
+  }
+  
+  main {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  
+  main, aside {
+    padding: 10px;
+  }
+
+  form button {
+    margin: 10px;
+    padding: 5%;
+  }
