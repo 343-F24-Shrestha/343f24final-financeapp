@@ -9,7 +9,7 @@ body {
   header {
     display: flex;
     background-color: skyblue;
-    padding-bottom: 35px;
+    padding: 2vh;
     justify-content: center;
   }
 
