@@ -3,22 +3,34 @@
     <head>
         <meta charset="utf-8">
         <title>TITLE</title>
-        <!-- <link rel="stylesheet" href="#"> -->
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <q>Quote . . . - Name</q>
+        <header>Finance {TITLE}</header>
+        <div class="middler">
+            <aside aria-label="lefty">
+                <p>Left SideBar</p>
+            </aside>
 
-        <div>Left SideBar</div>
+            <main>
+                <section><q>GENERATE QUOTE</q></section>
 
-        <form action="#">
-            <label for="name">To Start Your Journey. Select Your Age</label>
-            <button type="submit" name="age">18-25</button>
-            <button type="submit" name="age">25+</button>
-        </form>
+                <form action="page2.html">
+                    <label for="age">
+                        To Start Your<br>
+                        Select Your Age
+                    </label>
+                    <div class="container">
+                        <button type="submit" name="age">18-25</button><br>
+                        <button type="submit" name="age">25+</button>
+                    </div>
+                </form>
+            </main>
 
-        <div>Right SideBar</div>
-
-
+            <aside aria-label="righty">
+                <p>Right SideBar</p>
+            </aside>
+        </div>
 
         <!-- <script src="#"></script> -->
     </body>
