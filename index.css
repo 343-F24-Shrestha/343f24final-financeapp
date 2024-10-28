@@ -1,67 +1,89 @@
+html {
+  background-color: lightgrey;
+}
+
+header {
+  background-color: skyblue;
+  text-align: center;
+  width: 100%;
+  height: 20vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2em;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  margin-top: 0;
+}
+
 body {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    min-height: 100vh;
-  }
+  background-color: white;
+  font-family: sans-serif;
+  margin: 0;
+  padding-top: 20vh;
+}
 
-  header {
-    display: flex;
-    background-color: skyblue;
-    padding: 2vh;
-    justify-content: center;
-  }
+.middler {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin: 2% auto;
+  background-color: rgb(189, 189, 189);
+  padding: 2%;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 10px;
+}
 
-  .middler {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-  }
+aside {
+  background-color: lightgrey;
+  flex-basis: 20%;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  aside {
-    background-color: white;
-    flex-basis: 150px;
-  }
-  
-  main {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-basis: 0;
-    justify-content: flex-start;
-    align-items: center;
-  }
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  box-sizing: border-box;
+}
 
-  main form {
-    display: flex;
-    justify-content: center;
-    padding-left: min(10%);
-    padding-right: 15%;
-  }
+section {
+  font-size: 1.5em;
+  margin: 2% 0;
+}
 
-  
-  main, aside, header {
-    padding: 10px;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
-  form {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
+button {
+  font-size: large;
+  margin: 10px;
+  padding: 15px 25px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-  form button {
-    font-size: large;
-    margin: 10px;
-    padding: 3.5em;
-    background-color: white;
-    border-color: black;
-    border-width: 5px;
-  }
+button:hover {
+  background-color: lightgrey;
+}
