@@ -11,10 +11,29 @@
     </header>
     <main>
         <h2>Income Range:</h2>
-        <button type="button" onclick="location.href='money_left.html'">$0 - $29,999</button>
-        <button type="button" onclick="location.href='money_left.html'">$30,000 - $59,999</button>
-        <button type="button" onclick="location.href='money_left.html'">$60,000+</button>
+        <button type="button" onclick="location.href='money_left.html'" id="low-income">$0 - $29,999</button>
+        <button type="button" onclick="location.href='money_left.html'" id="mid-income">$30,000 - $59,999</button>
+        <button type="button" onclick="location.href='money_left.html'" id="high-income">$60,000+</button>
     </main>
+
+    <script>
+        const low = document.getElementById('low-income');
+        const mid = document.getElementById('mid-income');
+        const high = document.getElementById('high-income');
+
+        low.addEventListener('click', ()=> {
+            localStorage.removeItem('income')
+            localStorage.setItem('income', -1)
+        });
+        mid.addEventListener('click', ()=> {
+            localStorage.removeItem('income')
+            localStorage.setItem('income', 0)
+        });
+        high.addEventListener('click', ()=> {
+            localStorage.removeItem('income')
+            localStorage.setItem('income', 1)
+        });
+    </script>
 </body>
 
 </html>

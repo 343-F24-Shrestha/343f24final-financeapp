@@ -13,10 +13,34 @@
     </div>
     <main>
         <div class="button-container">
-            <button type="button" onclick="location.href='low_risk.html'">Less than $500</button>
-            <button type="button" onclick="location.href='low_risk.html'">$500 - $1000</button>
-            <button type="button" onclick="location.href='low_risk.html'">$1000+</button>
+            <button type="button" onclick="location.href='reconsider_investing.html'">Less than $500</button>
+            <button type="button" onclick="location.href='low_risk.html'" id="mid">$500 - $1000</button>
+            <button type="button" onclick="location.href='low_risk.html'" id="high">$1000+</button>
         </div>
     </main>
+
+    <script src="income.js">
+        const mid = document.getElementById('mid');
+        const high = document.getElementById('high');
+
+        let income = localStorage.getItem('income');
+        let age = localStorage.getItem('age');
+
+        mid.addEventListener('click', ()=> {
+            if (income == -1) { // low income $0 - $29,999
+                window.location.href = "reconsider_investing.html"; // !!!!!!! Redirect to correct page?????
+            } else {
+                window.location.href = "low_risk.html";    // !!!!!!! Redirect to correct page??????
+            }
+        });
+
+        high.addEventListener('click', ()=> {
+            if (age == 1) { // age is 25+
+                window.location.href = "low-risk.html"; // !!!!!!! Redirect to correct page?????
+            } else {
+                window.location.href = "high_risk.html";    // !!!!!!! Redirect to correct page????
+            }
+        });
+    </script>
 </body>
 </html>

@@ -23,8 +23,8 @@
                         Select Your Age
                     </label>
                     <div class="container">
-                        <button type="submit" name="age">18-25</button><br>
-                        <button type="submit" name="age">25+</button>
+                        <button type="submit" name="age" id="young">18-25</button><br>
+                        <button type="submit" name="age" id="adult">25+</button>
                     </div>
                 </form>
             </main>
@@ -37,5 +37,20 @@
         <footer>
             <a href="report.html">Project Report</a>
         </footer>
+
+        <script>
+            const young = document.getElementById('young');
+            const adult = document.getElementById('adult');
+
+            young.addEventListener('click', ()=> {
+                localStorage.removeItem('age')
+                localStorage.setItem('age', 0)
+            });
+
+            adult.addEventListener('click', ()=> {
+                localStorage.removeItem('age')
+                localStorage.setItem('age', 1)
+            });
+        </script>
     </body>
 </html>
