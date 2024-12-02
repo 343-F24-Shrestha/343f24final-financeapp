@@ -7,7 +7,7 @@
     </head>
     <body>
         <header>
-            <h1>Finance bros </h1>
+            <h1>Finance bros</h1>
         </header>
         <div class="middler">
             <aside aria-label="lefty">
@@ -15,7 +15,9 @@
             </aside>
 
             <main>
-                <section><q>GENERATE QUOTE </q></section>
+                <section>
+                    <q id="quote">Loading quote...</q>
+                </section>
 
                 <form action="annual_income.html">
                     <label for="age">
@@ -39,17 +41,52 @@
         </footer>
 
         <script>
+            const quoteElement = document.getElementById('quote');
+
+            // Your API key (replace 'YOUR_API_KEY' with your actual API key)
+            const API_KEY = 'UqyVnK4Ik+d/kynr/zxmKQ==A2BgJvamgdwgS5IK';
+
+            // Fetch a random quote from API Ninjas
+            async function fetchQuote() {
+                try {
+                    const response = await fetch('https://api.api-ninjas.com/v1/quotes?category=business', {
+                        method: 'GET',
+                        headers: {
+                            'X-Api-Key': API_KEY
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    const quote = data[0].quote;
+                    const author = data[0].author;
+
+                    quoteElement.textContent = `"${quote}" - ${author}`;
+                } catch (error) {
+                    quoteElement.textContent = 'Could not load a quote. Please try again later.';
+                    console.error('Error fetching quote:', error);
+                }
+            }
+
+            fetchQuote();
+
+            setInterval(fetchQuote, 100000);
+
+            // Local storage for age selection
             const young = document.getElementById('young');
             const adult = document.getElementById('adult');
 
-            young.addEventListener('click', ()=> {
-                localStorage.removeItem('age')
-                localStorage.setItem('age', 0)
+            young.addEventListener('click', () => {
+                localStorage.removeItem('age');
+                localStorage.setItem('age', 0);
             });
 
-            adult.addEventListener('click', ()=> {
-                localStorage.removeItem('age')
-                localStorage.setItem('age', 1)
+            adult.addEventListener('click', () => {
+                localStorage.removeItem('age');
+                localStorage.setItem('age', 1);
             });
         </script>
     </body>
