@@ -6,6 +6,9 @@ header {
     background-color: skyblue;
     text-align: center;
     padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    text-shadow: 4px 4px 8px black;
 }
 
 body {
@@ -25,7 +28,7 @@ main {
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
-    top: 100px;
+    top: 50px;
 }
 
 footer {

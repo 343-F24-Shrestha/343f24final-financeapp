@@ -1,5 +1,6 @@
 html {
     background-color: lightgrey;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 header {
@@ -13,13 +14,15 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 header h1 {
     font-size: 2em;
     color: white;
-    text-shadow: 2px 2px 4px black;
+    text-shadow: 4px 4px 8px black;
     margin-top: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
@@ -28,7 +31,7 @@ body {
     min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
     margin: 0;
     background-color: white;
-    font-family: sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     padding-top: 20vh; /* Adjust for the fixed header */
 }
 
@@ -42,6 +45,7 @@ main {
     width: 95%;
     flex-direction: column;
     box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 main p {
@@ -64,6 +68,7 @@ footer {
     text-shadow: 2px 2px 4px black;
     position: relative; /* Ensure footer works with the flexbox layout */
     bottom: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .investment-options {

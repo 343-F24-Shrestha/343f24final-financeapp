@@ -1,5 +1,6 @@
 html {
     background-color: lightgrey;
+
 }
 
 header {
@@ -13,13 +14,15 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 header h1 {
     font-size: 2em;
     color: white;
-    text-shadow: 2px 2px 4px black;
+    text-shadow: 4px 4px 8px black;
     margin: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
@@ -27,7 +30,7 @@ body {
     flex-direction: column;
     min-height: 100vh; /* Ensure full viewport height */
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     background-color: white;
     padding-top: 20vh; /* Account for fixed header */
 }
@@ -64,6 +67,7 @@ footer {
     text-shadow: 2px 2px 4px black;
     position: relative;
     bottom: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* Investment Options Styling */
