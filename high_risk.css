@@ -6,7 +6,7 @@ header {
     background-color: skyblue;
     text-align: center;
     width: 100%;
-    height: 20vh; /* Use viewport height to be responsive */
+    height: 20vh; /* Responsive header height */
     position: fixed;
     top: 0;
     left: 0;
@@ -15,47 +15,44 @@ header {
     align-items: center;
 }
 
-h1 {
+header h1 {
     font-size: 2em;
     color: white;
     text-shadow: 2px 2px 4px black;
+    margin: 0;
 }
 
 body {
-    background-color: white;
-    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure full viewport height */
     margin: 0;
-    padding-top: 20vh; /* Ensure header space */
+    font-family: sans-serif;
+    background-color: white;
+    padding-top: 20vh; /* Account for fixed header */
 }
 
 main {
+    flex: 1; /* Allow content to expand and push footer down */
     text-align: center;
-    display: flex;
     background-color: rgb(189, 189, 189);
-    margin: 2% auto; /* Centering horizontally with margin */
+    margin: 2% auto;
     padding: 2%;
-    height: auto; /* Allow height to adjust based on content */
     width: 95%;
     flex-direction: column;
-    box-sizing: border-box; /* Include padding and border in width */
+    box-sizing: border-box;
+    display: flex;
 }
 
-p {
+main p {
     font-size: 1.2em;
     color: black;
-    margin: 2% 0; /* Margin for spacing without absolute positions */
+    margin: 2% 0;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+h1 {
+    font-size: 3em; /* Larger size for the emoji */
+    margin: 1% 0;
 }
 
 footer {
@@ -65,7 +62,48 @@ footer {
     text-align: center;
     color: white;
     text-shadow: 2px 2px 4px black;
-    position: absolute;
+    position: relative;
     bottom: 0;
-    left: 0;
+}
+
+/* Investment Options Styling */
+.investment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px auto;
+    width: 90%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.investment-item {
+    text-align: left;
+    background-color: #eaeaea;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.investment-item strong {
+    font-size: 1.2em;
+    color: black;
+}
+
+.investment-item p {
+    font-size: 1em;
+    margin-top: 10px;
+    color: black;
+    line-height: 1.4;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
