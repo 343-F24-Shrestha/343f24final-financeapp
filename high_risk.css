@@ -1,13 +1,12 @@
 html {
     background-color: lightgrey;
-
 }
 
 header {
     background-color: skyblue;
     text-align: center;
     width: 100%;
-    height: 20vh; /* Responsive header height */
+    height: 20vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -22,29 +21,28 @@ header h1 {
     color: white;
     text-shadow: 4px 4px 8px black;
     margin: 0;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure full viewport height */
+    min-height: 100vh;
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
     background-color: white;
-    padding-top: 20vh; /* Account for fixed header */
+    padding-top: 20vh;
 }
 
 main {
-    flex: 1; /* Allow content to expand and push footer down */
+    flex: 1;
     text-align: center;
     background-color: rgb(189, 189, 189);
     margin: 2% auto;
     padding: 2%;
     width: 95%;
+    display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    display: flex;
 }
 
 main p {
@@ -54,7 +52,7 @@ main p {
 }
 
 h1 {
-    font-size: 3em; /* Larger size for the emoji */
+    font-size: 3em;
     margin: 1% 0;
 }
 
@@ -67,7 +65,31 @@ footer {
     text-shadow: 2px 2px 4px black;
     position: relative;
     bottom: 0;
-    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.footer-button:hover {
+    background-color: #45a049;
 }
 
 /* Investment Options Styling */

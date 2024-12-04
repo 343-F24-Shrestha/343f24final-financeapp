@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Page</title>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+    <header>
+        <h1>User Feedback</h1>
+    </header>
+    <main>
+        <!-- Feedback Form -->
+        <section id="feedback-form-section">
+            <h2>Submit Your Feedback</h2>
+            <form id="feedback-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating:</label>
+                    <select id="rating" name="rating">
+                        <option value="5">Excellent</option>
+                        <option value="4">Very Good</option>
+                        <option value="3">Good</option>
+                        <option value="2">Fair</option>
+                        <option value="1">Poor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>Would you recommend us?</p>
+                    <input type="radio" id="recommend-yes" name="recommend" value="Yes" checked>
+                    <label for="recommend-yes">Yes</label>
+                    <input type="radio" id="recommend-no" name="recommend" value="No">
+                    <label for="recommend-no">No</label>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments" rows="4" required placeholder="Enter your comments"></textarea>
+                </div>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+
+        <!-- Feedback List -->
+        <section id="feedback-list-section">
+            <h2>Feedback Received</h2>
+            <ul id="feedback-list"></ul>
+        </section>
+
+        <!-- Buttons for Export and Clear Data -->
+        <div id="data-buttons">
+            <button id="export-button">Export Feedback Data</button>
+            <button id="clear-button">Clear Feedback Data</button>
+        </div>
+    </main>
+
+    <!-- Modals for Edit and Delete -->
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="edit-close-button">&times;</span>
+            <h2>Edit Feedback</h2>
+            <form id="edit-feedback-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label for="edit-name">Name:</label>
+                    <input type="text" id="edit-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-email">Email:</label>
+                    <input type="email" id="edit-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-rating">Rating:</label>
+                    <select id="edit-rating" name="rating">
+                        <option value="5">Excellent</option>
+                        <option value="4">Very Good</option>
+                        <option value="3">Good</option>
+                        <option value="2">Fair</option>
+                        <option value="1">Poor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>Would you recommend us?</p>
+                    <input type="radio" id="edit-recommend-yes" name="recommend" value="Yes">
+                    <label for="edit-recommend-yes">Yes</label>
+                    <input type="radio" id="edit-recommend-no" name="recommend" value="No">
+                    <label for="edit-recommend-no">No</label>
+                </div>
+                <div class="form-group">
+                    <label for="edit-comments">Comments:</label>
+                    <textarea id="edit-comments" name="comments" rows="4" required></textarea>
+                </div>
+                <button type="submit">Update Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="delete-close-button">&times;</span>
+            <h2>Delete Feedback</h2>
+            <p>Are you sure you want to delete this feedback?</p>
+            <button id="confirm-delete-button">Yes, Delete</button>
+            <button id="cancel-delete-button">Cancel</button>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html">Return to Homepage</a>
+    </footer>
+
+    <script src="feedback.js"></script>
+</body>
+</html>
