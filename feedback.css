@@ -22,6 +22,25 @@ main {
     padding: 20px;
 }
 
+/* Add Feedback Button */
+#add-feedback-button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#open-modal-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#open-modal-button:hover {
+    background-color: #45a049;
+}
+
 /* Form Styles */
 form {
     max-width: 500px;
@@ -84,12 +103,8 @@ button:hover {
     margin: 0;
 }
 
-.feedback-actions {
-    margin-top: 10px;
-}
-
-.feedback-actions button {
-    margin-right: 10px;
+.feedback-item p {
+    margin: 5px 0;
 }
 
 /* Data Buttons */

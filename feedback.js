@@ -10,19 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const exportButton = document.getElementById('export-button');
     const clearButton = document.getElementById('clear-button');
 
-    // Modals
-    const editModal = document.getElementById('edit-modal');
-    const deleteModal = document.getElementById('delete-modal');
-
-    // Close Buttons
-    const editCloseButton = document.getElementById('edit-close-button');
-    const deleteCloseButton = document.getElementById('delete-close-button');
-
-    // Edit Form Elements
-    const editFeedbackForm = document.getElementById('edit-feedback-form');
-
-    // Delete Confirmation
-    let deleteIndex = null;
+    // Modal Elements
+    const addModal = document.getElementById('add-modal');
+    const openModalButton = document.getElementById('open-modal-button');
+    const addCloseButton = document.getElementById('add-close-button');
 
     // Function to display feedback
     function displayFeedback() {
@@ -31,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feedbackList.innerHTML = '<p>No feedback available.</p>';
             return;
         }
-        feedbackData.forEach((feedback, index) => {
+        feedbackData.forEach((feedback) => {
             const li = document.createElement('li');
             li.className = 'feedback-item';
             li.innerHTML = `
@@ -39,10 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>${feedback.comments}</p>
                 <p><strong>Recommend:</strong> ${feedback.recommend}</p>
                 <p><em>${feedback.email}</em></p>
-                <div class="feedback-actions">
-                    <button onclick="editFeedback(${index})">Edit</button>
-                    <button onclick="deleteFeedback(${index})">Delete</button>
-                </div>
             `;
             feedbackList.appendChild(li);
         });
@@ -52,6 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function saveFeedbackData() {
         localStorage.setItem('feedbackData', JSON.stringify(feedbackData));
     }
+
+    // Open Modal
+    openModalButton.addEventListener('click', () => {
+        addModal.style.display = 'block';
+    });
+
+    // Close Modal
+    addCloseButton.addEventListener('click', () => {
+        addModal.style.display = 'none';
+    });
 
     // Add Feedback
     feedbackForm.addEventListener('submit', (e) => {
@@ -67,62 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         saveFeedbackData();
         displayFeedback();
         feedbackForm.reset();
-    });
-
-    // Edit Feedback
-    window.editFeedback = function(index) {
-        const feedback = feedbackData[index];
-        document.getElementById('edit-id').value = index;
-        document.getElementById('edit-name').value = feedback.name;
-        document.getElementById('edit-email').value = feedback.email;
-        document.getElementById('edit-rating').value = feedback.rating;
-        document.getElementById('edit-comments').value = feedback.comments;
-        if (feedback.recommend === 'Yes') {
-            document.getElementById('edit-recommend-yes').checked = true;
-        } else {
-            document.getElementById('edit-recommend-no').checked = true;
-        }
-        editModal.style.display = 'block';
-    };
-
-    editFeedbackForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const index = document.getElementById('edit-id').value;
-        feedbackData[index] = {
-            name: editFeedbackForm['edit-name'].value,
-            email: editFeedbackForm['edit-email'].value,
-            rating: editFeedbackForm['edit-rating'].value,
-            recommend: editFeedbackForm['recommend'].value,
-            comments: editFeedbackForm['edit-comments'].value
-        };
-        saveFeedbackData();
-        displayFeedback();
-        editModal.style.display = 'none';
-    });
-
-    editCloseButton.addEventListener('click', () => {
-        editModal.style.display = 'none';
-    });
-
-    // Delete Feedback
-    window.deleteFeedback = function(index) {
-        deleteIndex = index;
-        deleteModal.style.display = 'block';
-    };
-
-    document.getElementById('confirm-delete-button').addEventListener('click', () => {
-        feedbackData.splice(deleteIndex, 1);
-        saveFeedbackData();
-        displayFeedback();
-        deleteModal.style.display = 'none';
-    });
-
-    document.getElementById('cancel-delete-button').addEventListener('click', () => {
-        deleteModal.style.display = 'none';
-    });
-
-    deleteCloseButton.addEventListener('click', () => {
-        deleteModal.style.display = 'none';
+        addModal.style.display = 'none';
     });
 
     // Export Data as JSON
@@ -148,6 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
             feedbackData = [];
             saveFeedbackData();
             displayFeedback();
+        }
+    });
+
+    // Close modal when clicking outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target === addModal) {
+            addModal.style.display = 'none';
         }
     });
 
