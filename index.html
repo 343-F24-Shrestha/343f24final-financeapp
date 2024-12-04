@@ -19,16 +19,15 @@
                     <q id="quote">Loading quote...</q>
                 </section>
 
-                <form action="annual_income.html">
-                    <label for="age">
-                        To Start Your<br>
-                        Select Your Age
+                <form onsubmit="return validateAge()">
+                    <label>
+                        To Start Your Advising, Please Enter Your Age<br>
+                        <input type="number" id="age" name="age" required min="18" max="100">
                     </label>
-                    <div class="container">
-                        <button type="submit" name="age" id="young">18-25</button><br>
-                        <button type="submit" name="age" id="adult">25+</button>
-                    </div>
+                    <button type="submit">Submit</button>
                 </form>
+
+
             </main>
 
             <aside aria-label="righty">
@@ -75,19 +74,24 @@
 
             setInterval(fetchQuote, 100000);
 
-            // Local storage for age selection
-            const young = document.getElementById('young');
-            const adult = document.getElementById('adult');
+            function validateAge() {
+                const ageInput = document.getElementById('age').value;
+                const age = parseInt(ageInput);
 
-            young.addEventListener('click', () => {
-                localStorage.removeItem('age');
-                localStorage.setItem('age', 0);
-            });
+                if (isNaN(age) || age < 18 || age > 100) {
+                    alert('Please enter a valid age between 18 and 100.');
+                    return false;
+                }
 
-            adult.addEventListener('click', () => {
-                localStorage.removeItem('age');
-                localStorage.setItem('age', 1);
-            });
+                localStorage.setItem('age', age);
+
+                window.location.href = 'annual_income.html';
+
+                return false;
+            }
+
+
+
         </script>
     </body>
 </html>
