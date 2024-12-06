@@ -19,6 +19,13 @@
                     <q id="quote">Loading quote...</q>
                 </section>
 
+                <section id="stocks">
+                    <h2>Major Stock Prices</h2>
+                    <ul id="stockList">
+                        <li>Loading stock prices...</li>
+                    </ul>
+                </section>
+
                 <form onsubmit="return validateAge()">
                     <label>
                         To Start Your Advising, Please Enter Your Age<br>
@@ -26,7 +33,6 @@
                     </label>
                     <button type="submit">Submit</button>
                 </form>
-
 
             </main>
 
@@ -43,7 +49,7 @@
             const quoteElement = document.getElementById('quote');
 
             // Your API key (replace 'YOUR_API_KEY' with your actual API key)
-            const API_KEY = 'UqyVnK4Ik+d/kynr/zxmKQ==A2BgJvamgdwgS5IK';
+            const API_KEY = 'I76MGijgPPcCnKBI3inY6g==zhz0sCgWXlD0uaWk';
 
             // Fetch a random quote from API Ninjas
             async function fetchQuote() {
@@ -89,6 +95,57 @@
 
                 return false;
             }
+
+            async function fetchStockPrices() {
+                const ticker = ['AAPL', 'GOOGL', 'MSFT', 'INTC', 'NVDA'];
+                const randomIndex = Math.floor(Math.random() * 5);
+                try {   
+                    const response = await fetch('https://api.api-ninjas.com/v1/stockprice?ticker=' + ticker[randomIndex], {
+                        method: 'GET',
+                        headers: {
+                            'X-Api-Key': API_KEY
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    const stockList = document.getElementById('stockList');
+
+
+                    stockList.innerHTML = '';
+
+
+                    const stocks = Array.isArray(data) ? data : [data];
+
+                    stocks.forEach(stock => {
+                        if (stock.name && stock.price && stock.currency) {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = `${stock.name}: ${stock.price.toFixed(2)} ${stock.currency}`;
+                            stockList.appendChild(listItem);
+                        }
+                    });
+
+                    if (stockList.children.length === 0) {
+                        stockList.innerHTML = '<li>No stock data available</li>';
+                    }
+                } catch (error) {
+                    console.error('Error fetching stock prices:', error);
+                    const stockList = document.getElementById('stockList');
+                    stockList.innerHTML = `<li>Unable to fetch stock prices. Error: ${error.message}</li>`;
+                }
+            }
+
+
+
+
+
+
+            fetchStockPrices();
+
+            setInterval(fetchStockPrices, 60000);
         </script>
     </body>
 </html>
+
